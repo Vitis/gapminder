@@ -1,0 +1,62 @@
+---
+title: "My RMarkdwn plot"
+author: "Teena"
+date: "Tuesday, July 07, 2015"
+output: html_document
+---
+
+I can add text like this.  To make bold use **bold**. Some might be *italic* 
+
+- first item
+- second item
+- third
+
+1. a
+2. b
+3. c
+
+# A section
+
+some text
+
+## A sub section
+
+more text
+
+# THIS IS FUN
+
+hello
+
+my name is **Teena**
+
+I have two *kids*
+
+1. Avery
+2. Lauryn
+
+create a [web link](http://www.google.com)
+
+link to an image see quick tools for rmarkdown
+
+# OK, so here is my code :)
+
+
+```{r load_stuff, echo=FALSE}
+library(ggplot2)
+```
+
+
+```{r first_chunk, echo=FALSE, fig.height=4, fig.width=4}
+
+df <- read.csv('raw-data/gapminder-FiveYearData.csv', header=T)
+
+ggplot(data=df, aes(x=gdpPercap, color=continent)) +
+  geom_density(size=2, aes(fill=continent)) +
+  scale_x_log10()+
+  facet_wrap(~year)
+
+```
+
+The mean per capital GDP in the data set is
+`r round(mean(df$gdpPercap),2)
+
