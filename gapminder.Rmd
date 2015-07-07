@@ -1,0 +1,33 @@
+---
+title: "Gapminder"
+author: "Teena"
+date: "July 7, 2015"
+output: html_document
+---
+
+```{r load_stuff, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(rmarkdown)
+```
+
+
+```{r load_file, echo=FALSE}
+
+df <- read.csv('raw-data/gapminder-FiveYearData.csv', header=T)
+```
+
+```{r filter_data_country}
+df1 <- filter(df, country == "Finland"| country == "Philippines"|country == "United States")
+```
+
+```{r GDP_Three_Countries}
+
+ggplot(data=df1, aes(x=year, y=gdpPercap)) +
+  geom_point() +
+  facet_wrap(~country)
+
+```
+
+The mean per capital GDP in the data set is
+`r round(mean(df$gdpPercap),2)`
