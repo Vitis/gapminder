@@ -58,5 +58,5 @@ ggplot(data=df, aes(x=gdpPercap, color=continent)) +
 ```
 
 The mean per capital GDP in the data set is
-`r round(mean(df$gdpPercap),2)
+`r round(mean(df$gdpPercap),2)`
 
